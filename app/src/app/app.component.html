@@ -62,8 +62,8 @@
   <div class="horizontal-divider" role="separator" aria-label="Divider"></div>
   <div class="check-rank">
     <h2>Check your Ranking</h2>
-    <p *ngIf="userRank">Congratulations! Your rank is {{userRank.rank + 1}} 🎉</p> 
-    <input type="text" placeholder="Enter your username" [(ngModel)]="userId"/>
+    <p *ngIf="userRank">Your rank is {{userRank.rank}}</p> 
+    <input type="text" placeholder="Enter your valid username" [(ngModel)]="userId"/>
     <button (click)="getUserRank()">Check</button>
   </div>
 </main>

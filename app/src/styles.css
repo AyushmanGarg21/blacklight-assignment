@@ -51,15 +51,11 @@ button {
         margin: 0.5rem;
         border: 1px solid var(--gray-400);
         border-radius: 0.5rem;
-        background: var(--red-to-pink-to-purple-horizontal-gradient);
+        background: var(--hori-grad);
         color: white;
         font-weight: 500;
         cursor: pointer;
     }
-
-button:hover {
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-}
 
 select {
     padding: 0.25rem;

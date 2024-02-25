@@ -60,14 +60,30 @@ app.get('/lastWeekLeaderboard/:country', (req, res) => {
 
 app.get('/userRank/:userId', (req, res) => {
   const userId = req.params.userId;
-  const query = `
-    SELECT COUNT(*) AS "rank"
+  const queryCheckUser = `
+    SELECT COUNT(*) AS userCount
+    FROM users
+    WHERE UID = ?
+  `;
+  const queryGetRank = `
+    SELECT COUNT(*)+1 AS "rank"
     FROM users
     WHERE Score > (SELECT Score FROM users WHERE UID = ?)
   `;
-  connection.query(query, [userId], (error, results, fields) => {
+
+  connection.query(queryCheckUser, [userId], (error, results, fields) => {
     if (error) throw error;
-    res.json(results[0]);
+
+    const userCount = results[0].userCount;
+
+    if (userCount === 0) {
+      res.json({rank : "not found"});
+    } else {
+      connection.query(queryGetRank, [userId], (error, results, fields) => {
+        if (error) throw error;
+        res.json(results[0]);
+      });
+    }
   });
 });
 
