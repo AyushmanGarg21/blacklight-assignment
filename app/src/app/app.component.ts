@@ -27,21 +27,21 @@ export class AppComponent implements OnInit{
   }
 
   getCurrentWeekLeaderboard(): void {
-    this.http.get('http://localhost:3000/currentWeekLeaderboard')
+    this.http.get('https://blacklight-assignment-7e8a.onrender.com/currentWeekLeaderboard')
       .subscribe((data: any[]) => {
         this.currentWeekLeaderboard = data;
       });
   }
 
   getLastWeekLeaderbord(country: string): void {
-    this.http.get(`http://localhost:3000/lastWeekLeaderboard/${country}`)
+    this.http.get(`https://blacklight-assignment-7e8a.onrender.com/lastWeekLeaderboard/${country}`)
       .subscribe((data: any[]) => {
         this.lastWeekLeaderboard = data;
       });
   }
 
   getUserRank(): void {
-    this.http.get(`http://localhost:3000/userRank/${this.userId}`)
+    this.http.get(`https://blacklight-assignment-7e8a.onrender.com/userRank/${this.userId}`)
       .subscribe((data: any[]) => {
         this.userRank = data;
       });
