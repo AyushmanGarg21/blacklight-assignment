@@ -1,0 +1,54 @@
+
+<main class="main">
+  <h1>Leaderboards</h1>
+  <div class="leaderbords">
+    <div class="left-side">
+      <h2>Weekly Leaderboard</h2>
+      <div class="horizontal-divider" role="separator" aria-label="Divider"></div>
+      <div class="leaderboard-table">
+        <div class="leaderboard-row" *ngFor="let entry of currentWeekLeaderboard">
+          <div class="leaderboard-cell">{{ entry.Rank }}</div>
+          <div class="leaderboard-cell">{{ entry.Name }}</div>
+          <div class="leaderboard-cell">{{ entry.Score }}</div>
+          <div class="leaderboard-cell">{{ entry.Country }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      <h2>Last Week Leaderboard</h2>
+      <div class="country-select">
+        <p>Select a country: </p>
+        <select #countrySelector (change)="getLastWeekLeaderbord(countrySelector.value)">
+        <option value=""></option>
+        <option value="ID">ID</option>
+        <option value="US">US</option>
+        <option value="FR">FR</option>
+        <option value="BR">BR</option>
+        <option value="GR">GR</option>
+        <option value="CN">CN</option>
+       </select>
+      </div>
+      <div class="leaderboard-table">
+        <div class="leaderboard-row" *ngFor="let entry of lastWeekLeaderboard">
+          <div class="leaderboard-cell">{{ entry.Rank}}</div>
+          <div class="leaderboard-cell">{{ entry.Name }}</div>
+          <div class="leaderboard-cell">{{ entry.Score }}</div>
+          <div class="leaderboard-cell">{{ entry.Country }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="horizontal-divider" role="separator" aria-label="Divider"></div>
+  <div class="check-rank">
+    <h2>Check your Ranking</h2>
+    <p *ngIf="userRank">Congratulations! Your rank is {{userRank.rank + 1}} 🎉</p> 
+    <input type="text" placeholder="Enter your username" [(ngModel)]="userId"/>
+    <button (click)="getUserRank()">Check</button>
+  </div>
+</main>
+
+
+
+
+<router-outlet />
