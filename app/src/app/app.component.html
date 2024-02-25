@@ -5,6 +5,12 @@
     <div class="left-side">
       <h2>Weekly Leaderboard</h2>
       <div class="horizontal-divider" role="separator" aria-label="Divider"></div>
+      <div class="leaderboard-template">
+        <div>Rank</div>
+        <div>Name</div>
+        <div>Score</div>
+        <div>Country</div>
+      </div>
       <div class="leaderboard-table">
         <div class="leaderboard-row" *ngFor="let entry of currentWeekLeaderboard">
           <div class="leaderboard-cell">{{ entry.Rank }}</div>
@@ -21,13 +27,27 @@
         <p>Select a country: </p>
         <select #countrySelector (change)="getLastWeekLeaderbord(countrySelector.value)">
         <option value=""></option>
+        <option value="IN">IN</option>
+        <option value="RU">RU</option>
+        <option value="DE">DE</option>
+        <option value="GB">GB</option>
+        <option value="JP">JP</option>
         <option value="ID">ID</option>
         <option value="US">US</option>
         <option value="FR">FR</option>
         <option value="BR">BR</option>
         <option value="GR">GR</option>
         <option value="CN">CN</option>
+        <option value="KR">KR</option>
+        <option value="IT">IT</option>
+        <option value="ES">ES</option>
        </select>
+      </div>
+      <div class="leaderboard-template">
+        <div>Rank</div>
+        <div>Name</div>
+        <div>Score</div>
+        <div>Country</div>
       </div>
       <div class="leaderboard-table">
         <div class="leaderboard-row" *ngFor="let entry of lastWeekLeaderboard">

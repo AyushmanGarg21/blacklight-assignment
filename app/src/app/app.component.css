@@ -78,7 +78,21 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: large;
-} 
+}
+
+.leaderboard-template{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    border: 1px solid var(--gray-400);
+    border-radius: 0.5rem;
+    font-size: large;
+    width: 73%;
+    text-align: center;
+    min-width: 370px;
+}
 
  .leaderboard-table{
     display: flex;
@@ -94,21 +108,30 @@
     font-size: large;
     width: 70%;
     text-align: center;
-    min-width: 300px;
+    min-width: 350px;
  }
- .leaderboard-row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    padding: 1px;
-    font-size:large;
-    color: rgb(72, 72, 72);
- }
- .leaderboard-row:nth-child(odd){
+
+  .leaderboard-row{
+      display: grid;
+      grid-template-columns: 10% 55% 25% 10%;
+      grid-gap: 2px;
+      grid-template-rows: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-size:large;
+      color: rgb(72, 72, 72);
+  }
+  .leaderboard-row:nth-child(odd){
     background-color:rgb(246, 218, 223);
  }
+  .leaderbord-cell{
+    width: 10%;
+    height: 3rem;
+    padding: 5px;
+    font-size:large;
+    color: rgb(72, 72, 72);
+  }
 
   @media screen and (max-width: 760px) {
     .leaderbords {
